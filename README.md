@@ -1,56 +1,30 @@
-# Welcome to your Expo app 👋
+# PhytoLog
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+An AI plant expert that knows your plants. Log a soil-moisture reading in two taps; PhytoLog learns how fast each plant dries in your home, tells you when to water, and (coming next) uses AI to identify plants, diagnose problems from photos and review your whole collection.
 
-## Get started
+## Stack
 
-1. Install dependencies
+- **App:** Expo (React Native) with Expo Router — one codebase for iPhone and Android
+- **Data and logins:** Supabase (to be added)
+- **AI:** Claude API, called from a Supabase function so the key never ships in the app (to be added)
 
-   ```bash
-   npm install
-   ```
+## Where things live
 
-2. Start the app
+- `src/app/` — screens (every file is a route)
+- `src/lib/care.ts` — the care engine: watering checks, season and humidity adjustments, health score
+- `src/lib/sample.ts` — sample plants shown until real logging is built
+- `src/constants/theme.ts` — brand colours (light and dark)
+- `assets/images/` — app icon and splash (the "Φ Leaf" mark)
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **src/app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+## Commands
 
 ```bash
-npm run reset-project
+npm install
+npx expo start        # run locally, open in Expo Go
+npx tsc --noEmit      # typecheck
 ```
 
-This command will move the starter code to the **example** directory and create a blank **src/app** directory where you can start developing.
+## Identifiers
 
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- iOS bundle ID / Android package: `uk.co.phytolog.app`
+- Expo project ID: `ce718783-457d-4b3d-a2b7-8292c052458f`

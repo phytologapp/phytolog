@@ -1,53 +1,57 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
+ * PhytoLog brand colours, carried over from the original plant log web app.
+ * Every screen reads colours from here so light and dark mode stay in step.
  */
-
-import '@/global.css';
 
 import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    ground: '#F2F4EE',
+    surface: '#FFFFFF',
+    sunk: '#E6EAE1',
+    text: '#1B231D',
+    textSecondary: '#4F5C51',
+    line: '#D5DBD0',
+    leaf: '#2E5B3B',
+    leafSoft: '#DCE8DC',
+    water: '#2F6F98',
+    waterSoft: '#DCEAF3',
+    due: '#8A560E',
+    dueSoft: '#F6E7CC',
+    late: '#AE3F35',
+    lateSoft: '#F5DAD6',
+    onAccent: '#FFFFFF',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    ground: '#121712',
+    surface: '#1B211C',
+    sunk: '#242B25',
+    text: '#E7ECE5',
+    textSecondary: '#9AA69B',
+    line: '#2F3830',
+    leaf: '#8CC49A',
+    leafSoft: '#223428',
+    water: '#7DB6DB',
+    waterSoft: '#1C2E3A',
+    due: '#E3B25F',
+    dueSoft: '#3A2E17',
+    late: '#EE8E83',
+    lateSoft: '#3D2220',
+    onAccent: '#121712',
   },
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
 export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
+  ios: { sans: 'system-ui', serif: 'ui-serif', rounded: 'ui-rounded', mono: 'ui-monospace' },
+  default: { sans: 'normal', serif: 'serif', rounded: 'normal', mono: 'monospace' },
   web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
+    sans: 'system-ui, sans-serif',
+    serif: "Georgia, 'Times New Roman', serif",
+    rounded: 'system-ui, sans-serif',
+    mono: 'ui-monospace, Menlo, monospace',
   },
 });
 
@@ -60,6 +64,3 @@ export const Spacing = {
   five: 32,
   six: 64,
 } as const;
-
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
